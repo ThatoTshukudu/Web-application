@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<html>
+<head>
+    <style>
+        #main {
+            margin-top: 25px;
+            width: 80%;
+            margin: 10px 5%;
+            padding: 10px 5%;
+        }
+
+        input {
+            width: 40%;
+            border: none;
+            border-bottom: 3px solid purple;
+            margin: 20px 2%;
+        }
+
+        #capture-btn {
+            width: 100%;
+            height: 40px;
+            background: orange;
+            color: white;
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login">
+        <div id="login-header">
+            <h2>Login</h2>
+        </div>
+        <div id="login-info">
+            <h3>The Disaster Alleviation Foundation</h3>
+            <p>Please login, If you are new to the webisite <a asp-page="register">(click here to REGISTER)</a>.</p>
+        </div>
+        <div id="login-form">
+            <form method="POST">
+                <input type="email" id="email" class="input-text" placeholder="Enter your email" asp-for="login.email" required /> <br>
+                <input type="password" class="input-text" placeholder="Enter your password" asp-for="login.password" required /> <br>
+                <input type="submit" id="input-submit" value="Login" /> <br> <br>
+
+            </form>
+        </div>
+    </div>
+
+    @if (Model.failState)
+    {
+        <script>
+            alert("Failed to login");
+        </script>
+    }
+
+    <script>
+        document.getElementById('email').focus();
+    </script>
+</body>
+
+</html>

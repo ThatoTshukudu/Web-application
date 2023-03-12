@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+}
+
+body {
+    background: url("../images/login-background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#login {
+    width: 80%;
+    height: 400px;
+    margin: 50px 5%;
+    padding: 50px 5%;
+    background: #121212;
+    color: white;
+    border-left: 10px double #DB6400;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px black;
+}
+
+#login-header h2 {
+    font-size: 40px;
+    color: #DB6400;
+    font-variant: small-caps;
+}
+
+#login-info {
+    width: 40%;
+    display: inline-block;
+    height: 300px;
+}
+
+#login-info h3 {
+    padding: 5px 0 40px 0;
+    margin-top: 30px;
+    font-variant: small-caps;
+}
+
+#login-info p {
+    font-size: 15px;
+    font-variant: small-caps;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#login-form {
+    width: 40%;
+    display: inline-block;
+    height: 200px;
+    text-align: center;
+    margin-left: 5%;
+    transform: translate(17%, 0px);
+}
+
+input {
+    margin: 15px 0;
+}
+
+.input-text {
+    width: 80%;
+    height: 23px;
+    border-radius: 16px;
+    text-align: center;
+    background: #121212;
+    border: none;
+    border-bottom: 2px double #DB6400;
+}
+
+#input-submit {
+    width: 33%;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: #DB6400;
+    transition: box-shadow 1s, background-color 1s, transform 1s;
+}
+
+#input-submit:hover {
+    cursor: pointer;
+    background-color: rgb(255, 115, 0);
+    box-shadow: 0 0 15px 2px gray;
+    transform: scale(1.2, 1.2);
+}

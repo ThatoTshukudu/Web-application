@@ -1,0 +1,92 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.testMonetaryModel
+@{
+    ViewData["Title"] = "testMonetary";
+}
+
+<html>
+<head>
+    <style>
+        #main {
+            margin-top: 25px;
+            width: 80%;
+            margin: 10px 5%;
+            padding: 10px 5%;
+        }
+
+        input {
+            width: 40%;
+            border: none;
+            border-bottom: 3px solid purple;
+            margin: 20px 2%;
+        }
+
+        #capture-btn {
+            width: 100%;
+            height: 40px;
+            background: orange;
+            color: white;
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background:purple;">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index" style="color:white;">DisasterALLeviationFoundation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+
+                        
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Goods">Goods Donations</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Disaster">DIsaster</a>
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Display">Display</a>
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Category">Category</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="monetaryDonations">
+        <h1>Monetary Donations</h1>
+        <p>Go to Allocate <a asp-page="allocateMoney">HERE</a></p><br>
+
+        <form method="post">
+            <label for="monetary-name">Enter name of the user or leave it as ANONYMOUS</label><br>
+            <input type="text" placeholder="User" value="ANONYMOUS" asp-for="MD.userName" required /><br><br>
+            <label for="monetary-date">Enter the date for the Monetary donation</label><br>
+            <input type="date" placeholder="date" asp-for="MD.date" required /><br><br>
+            <label for="monetary-amount">Enter the amount for the Monetary donation</label><br>
+            <input type="number" placeholder="amount" asp-for="MD.amount" required /><br><br>
+            <input type="submit" value="submit" />
+        </form>
+    </section>
+
+</body>
+</html>

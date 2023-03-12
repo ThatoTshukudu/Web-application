@@ -1,0 +1,112 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.publicUsersModel
+@{
+}
+
+<html>
+<head>
+    <style>
+        #main {
+            margin-top: 25px;
+            width: 80%;
+            margin: 10px 5%;
+            padding: 10px 5%;
+        }
+
+        input {
+            width: 40%;
+            border: none;
+            border-bottom: 3px solid purple;
+            margin: 20px 2%;
+        }
+
+        #capture-btn {
+            width: 100%;
+            height: 40px;
+            background: orange;
+            color: white;
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+ <body>
+
+<div class="container rounded p-4 text-warning my-5 bg-dark">
+    <h2 class="mb-3">Total monetary donations</h2>
+    <table class="table table-bordered text-warning">
+        <thead>
+            <tr>
+                <td>Name of donor</td>
+                <td>Date of Donation</td>
+                <td>Donated Amount</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.pml)
+            {
+                <tr>
+                    <td>@item.username</td>
+                    <td>@item.date</td>
+                    <td>@item.amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="container rounded p-4 text-warning my-5 bg-dark">
+    <h2 class="mb-3">Total goods donations</h2>
+    <table class="table table-bordered text-warning">
+        <thead>
+            <tr>
+                <td>Goods category</td>
+                <td>Number of items Received</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.pgl)
+            {
+                <tr>
+                    <td>@item.category</td>
+                    <td>@item.numberOfItems</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="container rounded p-4 text-light my-5 bg-dark">
+    <h2 class="mb-3">Active Disasters</h2>
+    <table class="table table-bordered text-warning">
+        <thead>
+            <tr>
+                <td>Location</td>
+                <td>Aid Needed</td>
+                <td>Start Date of Disaster</td>
+                <td>End Date of Disaster</td>
+                <td>Status</td>
+                <td>Number of Units Received</td>
+                <td>Amount of money Doanted</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.pdl)
+            {
+                <tr>
+                    <td>@item.location</td>
+                    <td>@item.aid</td>
+                    <td>@item.startDate</td>
+                    <td>@item.endDate</td>
+                    <td><a href="#" class="btn btn-outline-success disabled">ACTIVE</a></td>
+                    <td>@item.PnumOfitems</td>
+                    <td>@item.Mamount</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

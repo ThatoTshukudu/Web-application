@@ -1,0 +1,92 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.DisasterModel
+@{
+    ViewData["Title"] = "Disaster";
+}
+
+<html>
+<head>
+    <style>
+        #main {
+            margin-top: 25px;
+            width: 80%;
+            margin: 10px 5%;
+            padding: 10px 5%;
+        }
+
+        input {
+            width: 40%;
+            border: none;
+            border-bottom: 3px solid purple;
+            margin: 20px 2%;
+        }
+
+        #capture-btn {
+            width: 100%;
+            height: 40px;
+            background: orange;
+            color: white;
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background:purple;">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index" style="color:white;">DisasterALLeviationFoundation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/forMonetary">Monetary Donations</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Goods">Goods Donations</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Disaster">DIsaster</a>
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Display">Display</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="disaster">
+        <h1>Record Disaster</h1>
+        <p>To store the Disaster that have happened to the system please fill in the form, Please ensure all the values entered are valid.</p><br>
+        <form method="post">
+            <label>Enter the Start Date of the Disaster</label><br>
+            <input type="date" asp-for="myDisaster.startDate" required><br><br>
+            <label for="disaster-test-date">Enter the End Date of the Disaster</label><br>
+            <input type="date" asp-for="myDisaster.endDate" required><br><br>
+            <label>Enter the Location of the Disaster</label><br>
+            <input type="text" asp-for="myDisaster.location" required> <br><br>
+            <label>Enter a Desciption</label><br>
+            <textarea asp-for="myDisaster.description" style="color:black;" id="" cols="70" rows="10"></textarea><br><br>
+            <label>What Type of Aid is Needed</label><br>
+            <input type="text" asp-for="myDisaster.aid" placeholder="Enter aid type"><br><br>
+            <input type="submit" value="Capture">
+        </form>
+    </section>
+</body>
+</html>
+

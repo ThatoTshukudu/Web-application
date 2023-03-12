@@ -1,0 +1,179 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.homeModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<html>
+<head>
+    <style>
+        #main {
+            margin-top: 25px;
+            width: 80%;
+            margin: 10px 5%;
+            padding: 10px 5%;
+        }
+
+        input {
+            width: 40%;
+            border: none;
+            border-bottom: 3px solid purple;
+            margin: 20px 2%;
+        }
+
+        #capture-btn {
+            width: 100%;
+            height: 40px;
+            background: orange;
+            color: white;
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background:purple;">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index" style="color:white;">DisasterALLeviationFoundation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Index">login</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Goods">Goods Donations</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Disaster">DIsaster</a>
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-warning" asp-area="" asp-page="/Display">Display</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="monetaryDonations">
+        <h1>Monetary Donations</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Hendrerit dolor magna eget est lorem ipsum dolor. </p><br>
+        <form method="POST">
+            <label for="monetary-name">Enter name of the user or leave it as ANONYMOUS</label><br>
+            <input type="text" name="monetary-name" value="ANONYMOUS" asp-for="md.userName" asp-page-handler="Monetary" required><br><br>
+            <label for="monetary-date">Enter the date for the Monetary donation</label><br>
+            <input type="date" name="monetary-date" asp-for="md.date" asp-page-handler="Monetary" required><br><br>
+            <label for="monetary-amount">Enter the amount for the Monetary donation</label><br>
+            <input type="number" name="monetary-amount" asp-for="md.amount" asp-page-handler="Monetary" required><br><br>
+            <input type="submit" value="Capture" asp-page-handler="Monetary">
+        </form>
+
+    </section>
+
+    <section id="goodsDonations">
+        <h1>Goods Donations</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Hendrerit dolor magna eget est lorem ipsum dolor. </p><br>
+        <form method="POST">
+            <label for="goods-name">Enter name of the user or leave it as ANONYMOUS</label><br>
+            <input type="text" name="goods-name" value="ANONYMOUS" asp-for="gd.userName" required><br><br>
+
+            <label for="goods-date">Enter the date for the Goods donation</label><br>
+            <input type="date" name="goods-date" asp-for="gd.date" required><br><br>
+
+            <label for="goods-number">Enter the number of items</label><br>
+            <input type="number" name="goods-number" asp-for="gd.numberOfItems" required><br><br> <br>
+
+            <label for="goods-category">Select the category</label> <br>
+            <select name="goods-category" asp-for="gd.category">
+                <option value="Clothes">Clothes</option>
+                <option value="Non‐perishable foods">Non‐perishable foods</option>
+            </select><br><br>
+
+            <label for="">Enter a Desciption of each item</label><br><br>
+            <textarea name="goods-decription" id="" cols="70" rows="10" asp-for="gd.description"></textarea><br><br>
+
+            <input type="submit" value="Capture" asp-page-handler="Goods">
+
+        </form>
+    </section>
+
+    <section id="addCategory">
+        <h1>Add New Category</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Hendrerit dolor magna eget est lorem ipsum dolor. </p><br><br>
+        <form method="POST">
+            <label for="">Name of category</label><br>
+            <input type="text" required><br><br>
+            <input type="submit">
+        </form>
+    </section>
+
+    <section id="disaster">
+        <h1>Record Disaster</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Hendrerit dolor magna eget est lorem ipsum dolor. </p><br>
+        <form method="post">
+            <label for="disaster-test-date">Enter the Start Date of the Disaster</label><br>
+            <input type="date" name="disaster-test-date" required><br><br>
+            <label for="disaster-test-date">Enter the End Date of the Disaster</label><br>
+            <input type="date" name="disaster-test-date" required><br><br>
+            <label for="disaster-location">Enter the Location of the Disaster</label><br>
+            <input type="text" name="disaster-location" required> <br><br>
+            <label for="disaster-description">Enter a Desciption</label><br>
+            <textarea name="disaster-description" id="" cols="70" rows="10"></textarea><br><br>
+            <label for="disaster-aid-type">What Type of Aid is Needed</label><br>
+            <input type="text" name="disaster-aid-type"><br><br>
+            <input type="submit" value="Capture">
+        </form>
+    </section>
+
+    <section id="display">
+        <h1>All incoming monetary donations</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br><br>
+        <table border="1">
+            <tr>
+                <td>Donar</td>
+                <td>Date</td>
+                <td>Amount</td>
+            </tr>
+        </table>
+
+
+        <h1>All incoming goods donations.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br><br>
+        <table border="1">
+            <tr>
+                <td>Donor</td>
+                <td>Date</td>
+                <td>Number of Items</td>
+                <td>Category</td>
+                <td>Desciption</td>
+            </tr>
+        </table>
+
+
+        <h1>All disasters</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br><br>
+        <table border="1">
+            <tr>
+                <td>Start Date</td>
+                <td>End Date</td>
+                <td>Location</td>
+                <td>Desciption</td>
+                <td>Aid Type</td>
+            </tr>
+        </table>
+    </section>
+</body>
+
+</html>
+
+
